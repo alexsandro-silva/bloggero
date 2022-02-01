@@ -6,7 +6,7 @@ function limpar($string){
     );
     // Traduz os caracteres em $string, baseado no vetor $table
     $string = strtr($string, $table);
-	$string= preg_replace('/[,.;:`´^~\'"]/', null, iconv('UTF-8','ASCII//TRANSLIT',$string));
+	$string= preg_replace('/[,.;:`´^~\'"]/', '', iconv('UTF-8','ASCII//TRANSLIT',$string));
 	$string= strtolower($string);
 	$string= str_replace(" ", "-", $string);
 	$string= str_replace("---", "-", $string);
