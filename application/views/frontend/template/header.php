@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Blog do CodeIgniter</a>
+                <a class="navbar-brand" href="<?= base_url(); ?>">Bloggero</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -18,10 +18,15 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorias <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Categoria 1</a></li>
-                        <li><a href="#">Categoria 2</a></li>
-                        <li><a href="#">Categoria 3</a></li>
-                        <li><a href="#">Categoria 4</a></li>
+                        <?php
+                            foreach ($categorias as $categoria) {
+
+                        ?>
+                            <li><a href="<?= base_url('categoria/' . $categoria->id . '/' . limpar($categoria->titulo))  ?>"><?= $categoria->titulo ?></a></li>
+                        <?php
+                        }
+                        ?>
+
                       </ul>
                     </li>
                     <li>
